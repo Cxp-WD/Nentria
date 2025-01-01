@@ -6,5 +6,5 @@ Icons/*
 client_secrets.json
 backend-storing.py
 backend-management.py
-DO_NOT_DELETE_PASSOWRD_MANAGER.safe
+DO_NOT_DELETE_PASSWORD_MANAGER.safe
 .settings.yml

@@ -6,6 +6,8 @@ PASSOWRD = "password123" # Default password for now
 from Nentria_lib import *
 import keyboard, yaml, os, time
 
+tempkey = cryptomanager.generate_key(PASSOWRD)
+
 def main():
     if not os.path.isfile(".settings.yml"):
         auth_file = input("Type $make to create a auth file\nDefault Auth > ")
@@ -22,13 +24,20 @@ def main():
             default_auth = settings.get('default_auth')
             syncmanager.authenticate_and_upload(auth_file=default_auth, safe_name=SAFE_FILE)
     print("Nentria CLI")
+    if not os.path.isfile(LOCAL_FILE):
+        with open(LOCAL_FILE, 'w') as file:
+            file.write("")
     while True:
+        print("Nentria CLI")
         if keyboard.is_pressed('f1'):
             print("Passwords")
             with open(LOCAL_FILE, 'r') as file:
-                tempkey = cryptomanager.generate_key(PASSOWRD)
-                #print(cryptomanager.decrypt_message(file.read(), key=tempkey))
-                print(file.read())
+                print(cryptomanager.decrypt_message(file.read(), key=tempkey))
                 time.sleep(0.1)
+        elif keyboard.is_pressed('f2'):
+            print("Add Password")
+            with open(LOCAL_FILE, 'a') as file:
+                password = input("Enter Password: ")
+                file.write(f"{cryptomanager.encrypt_message(password,tempkey)}\n")
 
 main()
