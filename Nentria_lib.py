@@ -24,7 +24,7 @@ class cryptomanager():
         return cryptomanager.decrypt_message(encrypted_message, key)
 
 class syncmanager():
-    def authenticate_and_upload(auth_file=None):
+    def authenticate_and_upload(safe_name, content="test", auth_file=None):
         gauth = GoogleAuth()
 
         if auth_file: # Load the specified auth file
@@ -45,30 +45,28 @@ class syncmanager():
 
             # Save the credentials with the new filename
             gauth.SaveCredentialsFile(f"{i}_{auth_filename}")
-            print(f"Credentials saved as {f"{i}_{auth_filename}"}")
 
         drive = GoogleDrive(gauth)
 
         # Create a file and upload it
-        file1 = drive.CreateFile({f'title': input("Name > ")})  # Create a file with the title 'Hello.txt'
-        file1.SetContentString(input("Content > "))  # Set content of the file
-        file1.Upload()  # Upload the file
-        print('File uploaded successfully')
+        file1 = drive.CreateFile({f'title': safe_name})  # Create a file with the title 'Hello.txt'
+        file1.SetContentString(content)  # Set content of the file
+        file1.Upload()
 
-    def read_file(auth_file):
+    def read_file(auth_file, read_file):
         gauth = GoogleAuth()
         gauth.LoadCredentialsFile(auth_file)
         if gauth.credentials is None or gauth.access_token_expired: gauth.Refresh()
         else: gauth.Authorize()
         drive = GoogleDrive(gauth)
-        file_list = drive.ListFile({'q': "title='Hello.txt'"}).GetList()
+        file_list = drive.ListFile({'q': f"title='{read_file}'"}).GetList()
         if file_list:
             file1 = file_list[0]
-            file1.GetContentFile('Hello.txt')
-            with open('Hello.txt', 'r') as f:
+            file1.GetContentFile(read_file)
+            with open(read_file, 'r') as f:
                 content = f.read()
-            print(f"Content of Hello.txt: {content}")
-        else: print("Hello.txt not found")
+            return content
+        else: return "404"
 
     def list_auth_files(): return [f for f in os.listdir() if f.endswith('.auth')]
 
