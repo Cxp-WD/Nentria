@@ -1,6 +1,8 @@
 SAFE_FILE = "DO_NOT_DELETE_PASSWORD_MANAGER.safe"
 LOCAL_FILE = "DO_NOT_DELETE_PASSWORD_MANAGER.safe"
 
+PASSOWRD = "password123" # Default password for now
+
 from Nentria_lib import *
 import keyboard, yaml, os, time
 
@@ -24,6 +26,8 @@ def main():
         if keyboard.is_pressed('f1'):
             print("Passwords")
             with open(LOCAL_FILE, 'r') as file:
+                tempkey = cryptomanager.generate_key(PASSOWRD)
+                #print(cryptomanager.decrypt_message(file.read(), key=tempkey))
                 print(file.read())
                 time.sleep(0.1)
 
