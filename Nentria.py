@@ -45,7 +45,7 @@ def on_key_press(event):
 # Create the main application window
 root = tk.Tk()
 root.title("Nentria Sign-In")
-root.geometry("400x250")  # Set a larger window size
+root.geometry("450x250")  # Set a larger window size
 root.configure(bg="#0153FF")
 
 # Center the window on the screen
