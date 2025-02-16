@@ -16,7 +16,7 @@ class cryptomanager():
 
     def decrypt_message(encrypted_message, key): # Decrypt the message using the key
         try: decrypted = secret.SecretBox(key).decrypt(encrypted_message, encoder=Base64Encoder)
-        except Exception: return "Wrong key or message corrupted"
+        except KeyError: return "Wrong key or message corrupted"
         else: return decrypted.decode()
 
     def decrypt_using_backup(encrypted_message, password): # Decrypt the message using the backup password

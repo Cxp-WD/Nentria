@@ -28,16 +28,20 @@ def main():
         with open(LOCAL_FILE, 'w') as file:
             file.write("")
     while True:
-        print("Nentria CLI")
         if keyboard.is_pressed('f1'):
             print("Passwords")
-            with open(LOCAL_FILE, 'r') as file:
-                print(cryptomanager.decrypt_message(file.read(), key=tempkey))
-                time.sleep(0.1)
+            if os.path.isfile(LOCAL_FILE) and os.path.getsize(LOCAL_FILE) > 0:
+                with open(LOCAL_FILE, 'r') as file:  # Open the file in text mode
+                    encrypted_content = file.read().strip()  # Read and strip any extra whitespace
+                    print(cryptomanager.decrypt_message(encrypted_content, key=tempkey))
+            else:
+                print("No passwords found.")
+            time.sleep(0.1)
         elif keyboard.is_pressed('f2'):
             print("Add Password")
-            with open(LOCAL_FILE, 'a') as file:
+            with open(LOCAL_FILE, 'w') as file:  # Use 'w' to write in text mode
                 password = input("Enter Password: ")
-                file.write(f"{cryptomanager.encrypt_message(password,tempkey)}\n")
+                encrypted_password = cryptomanager.encrypt_message(password, tempkey)
+                file.write(encrypted_password + '\n')  # Write string directly
 
 main()
