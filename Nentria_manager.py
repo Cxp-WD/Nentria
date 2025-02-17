@@ -67,6 +67,9 @@ class Cloud():
         else: return "404"
 
 class Cryptography:
+    def hash(data): 
+        return hashlib.sha256(data.encode()).hexdigest()
+
     def generate_pin(text: str) -> str:
         """Hash input into a 6-digit PIN"""
         hash_obj = hashlib.sha256(text.encode())  
