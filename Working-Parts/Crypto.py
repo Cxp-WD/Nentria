@@ -1,4 +1,4 @@
-from Nentria_manager import Cryptography
+from NTM import Cryptography
 
 def generate_key(password):
     stored_pass = Cryptography.hash(password)

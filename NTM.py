@@ -1,5 +1,6 @@
+# This is the backend of Nentria - only edit if you know what you are doing
+
 import os
-#import Nentria_sync as syncmanager
 import nacl.secret
 import nacl.utils
 import hashlib, base64
@@ -35,7 +36,6 @@ class Cloud():
         i = 1
         while os.path.exists(f"{i}_{auth_filename}"):
             i += 1
-        print(f"Saving credentials to {i}_{auth_filename}")
 
         # Save the credentials with the new filename
         self.gauth.SaveCredentialsFile(f"{i}_{auth_filename}")
@@ -52,9 +52,9 @@ class Cloud():
         if file_list:
             file1 = file_list[0]
             file1.Delete()  # Delete the uploaded file
-            print(f"Deleted file: {safe_name}")
+            return 200
         else:
-            print(f"File not found: {safe_name}")
+            return 404
 
     def read(self, read_file):
         file_list = self.drive.ListFile({'q': f"title='{read_file}'"}).GetList()
@@ -122,21 +122,8 @@ class Credentials:
             next_entry = variable[next_entry_start:next_entry_end]
 
         except ValueError:
-            print(f"'{search_string}' not found in the variable.")
+            return 404
 
         return Cloud(f"{auth_file}_{next_entry}")
-
-    def save_creds():
-        x=0
     
     def list_creds(): return [f for f in os.listdir() if f.endswith('.auth')]
-
-class FileManagement:
-    def add_entry():
-        x=0
-
-    def list_entries():
-        x=0
-
-    def delete_entry():
-        x=0
