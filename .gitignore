@@ -9,3 +9,4 @@ backend-management.py
 DO_NOT_DELETE_PASSWORD_MANAGER.safe
 .settings.yml
 .gitignore
+.venv/
