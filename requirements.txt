@@ -1,4 +1,8 @@
 pydrive
 pynacl
 keyboard
+<<<<<<< HEAD
 cryptography
+=======
+pillow
+>>>>>>> 22bc3b7380b6d189832c4495ce3428150b96b772

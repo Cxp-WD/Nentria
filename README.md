@@ -1,16 +1,8 @@
 # Nentria
 ### Open-Source Password Manager
-Nentria is an open-source password manager that allows you to store and manage your passwords securely, without the need for centralized servers. It uses Quantum Secure End-to-End Encryption (E2EE) to protect your data, while syncing it across devices using your own cloud storage (e.g., Google Drive, OneDrive, Dropbox).
+Want to keep your data secure from data brokers without losing the function of syncing?
+Well Nentria got you covered, by encrypting your data with quantum secure encryption and storing your data securely on cloud services like Google Drive or hosting your own server, ensures that your data is only in your palms.
 
-## Key Features
-No Central Hosting: Nentria doesn’t store your data on central servers. Your passwords are securely synced using your own cloud storage, ensuring complete control over your data.
+By using multiple cloud service you can enable Cloud Raid, so if even just one server is alive then your data is syncing. Just to be sure we added a local backup that can be merged with other clients when syncing incase if your cloud storage gets corrupted.
 
-Local Encrypted Backup: In addition to syncing via cloud, Nentria creates a local encrypted copy of your passwords on your device. This ensures that if cloud syncing fails, you still have access to your data, though syncing will be temporarily paused.
-
-Cloud Flexibility: Choose your cloud provider (Google Drive, OneDrive, Dropbox, etc.) for syncing.
-
-TOTP Support: Manage your time-based one-time passwords (2FA) directly within Nentria.
-
-Passkeys: Embrace passwordless authentication with integrated passkey support.
-
-Cross-Platform: Nentria is designed to work across devices, with plans to be available on Microsoft Store, Google Play Store, and Apple App Store.
+While also being avaible for Windows, Linux, MacOS, Chrome, Android and iOS, and being able to manage your TOTP keys and passkeys with one button to fill it, and the best thing... It's all **FREE**.

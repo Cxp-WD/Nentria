@@ -60,8 +60,13 @@ def sign_out():
 # Create the main application window
 root = tk.Tk()
 root.title("Nentria Sign-In")
+<<<<<<< HEAD:Archine/Nentria.py
 root.geometry("400x250")  # Set a larger window size
 root.configure(bg="#5a908c")
+=======
+root.geometry("450x250")  # Set a larger window size
+root.configure(bg="#0153FF")
+>>>>>>> 22bc3b7380b6d189832c4495ce3428150b96b772:Nentria.py
 
 # Center the window on the screen
 root.eval('tk::PlaceWindow %s center' % root.winfo_toplevel())

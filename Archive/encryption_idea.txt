@@ -1,0 +1,12 @@
+Password Hashing:
+
+The hash_password function hashes the password using SHA-256 (without a salt).
+PIN Generation:
+
+The derive_pin_from_password function creates a 6-digit PIN by hashing the password and taking the first 6 characters of the hash.
+PIN Hashing:
+
+The create_encryption_key function hashes the PIN and combines it with the password hash to create the final encryption key.
+Final Encryption Key:
+
+The encryption key is a combination of both the password hash and the PIN hash. This is done simply by concatenating the two hashes.
