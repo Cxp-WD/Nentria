@@ -8,9 +8,7 @@ backend-storing.py
 backend-management.py
 DO_NOT_DELETE_PASSWORD_MANAGER.safe
 .settings.yml
-<<<<<<< HEAD
 php/
-=======
 .gitignore
 .venv/
->>>>>>> 22bc3b7380b6d189832c4495ce3428150b96b772
+Archive/

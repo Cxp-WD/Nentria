@@ -21,7 +21,7 @@ if not os.path.isdir("NentriaData/keys"):
     os.mkdir("NentriaData/keys")
 
 for vault in os.listdir("NentriaData/vaults/"):
-    list_of_vaults.append(vault)
+    list_of_vaults.append(vault)b
 
 def create_vault():
     global current_vault, tempkey, salt
