@@ -1,4 +1,4 @@
-from Nentria_lib import *
+from Archive.Nentria_lib import *
 
 password = "1234567890"
 message = "Hello World"

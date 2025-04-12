@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 import os
 import time
 import yaml
 import keyboard
-from Nentria_lib import cryptomanager, syncmanager
+from Archive.Nentria_lib import cryptomanager, syncmanager
 import uuid
 
 SAFE_FILE = "DO_NOT_DELETE_PASSWORD_MANAGER.safe"
@@ -96,7 +95,6 @@ def main():
         elif keyboard.is_pressed('alt+3'):
             create_vault()
             time.sleep(0.1)
-=======
 # This is a command line version of Nentria.
 # Useful for understanding how everything work.
 
@@ -149,7 +147,6 @@ def read_file(cloud, read_file):
 
 def main():
     for cred in Credentials.list_creds(): print(cred) # Lists authenticated users
->>>>>>> 22bc3b7380b6d189832c4495ce3428150b96b772
 
     userid = input("User > ")
     if userid != "":
