@@ -112,7 +112,6 @@ class Credentials:
             # Find the index of the search string
             index = variable.index(search_string)
     
-            # Find the next entry after the search string
             next_entry_start = index + len(search_string) + 1  # Adjust to skip the underscore
             next_entry_end = variable.find(" ", next_entry_start)
     
